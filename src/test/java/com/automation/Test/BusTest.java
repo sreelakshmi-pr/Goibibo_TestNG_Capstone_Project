@@ -11,7 +11,7 @@ public class BusTest extends BaseTest {
         homePage.openWebsite();
         busPage.clickOnBus();
         busPage.searchForBus(ConfigReader.getConfigValue("bus.from.city"),ConfigReader.getConfigValue("bus.to.city"));
-        busPage.selectDate("12 September 2024");
+        busPage.selectDate("24 September 2024");
         busPage.clickOnSearch();
         Assert.assertTrue(busPage.busSearchPageIsDisplayed());
     }

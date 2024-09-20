@@ -15,6 +15,11 @@ public class DriverManager {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
+    public static void setImplicitWait(int sec){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(sec));
+    }
+
+
     public static WebDriver getDriver(){
         return driver;
     }

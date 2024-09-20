@@ -5,39 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac88fb32-fe91-46b2-b8af-98805b08abd4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Listners/AllureListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Pages/BasePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Pages/BusPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Pages/FlightPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Pages/FlightSearchPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Pages/HomePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Pages/HotelPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Test/BaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Test/BusTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Test/FlightTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Test/HomeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Test/HotelTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Utils/AllureReportManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Utils/ConfigReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Utils/DriverManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/BusSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/FlightSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/HolidaySteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/HomeSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/Hooks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/steps/HotelSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/Config/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/Runnable/testng.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/BusBooking.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/FlightBooking.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/HolidayBooking.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/features/HotelBooking.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/automation/Utils/ExtentReportManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/Pages/HotelPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/Pages/HotelPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/Test/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/Test/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/Test/BusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/Test/BusTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/Utils/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/Utils/DriverManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/BusSteps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/FlightSteps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/HolidaySteps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/HomeSteps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/Hooks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/steps/HotelSteps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/BusBooking.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/FlightBooking.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/HolidayBooking.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/HotelBooking.feature" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,44 +38,44 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2lgvMsCxCNbSaeIjCl7rZLR5AbD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TestNG.BusTest.VerifyDestinationAndSourceAreNotSame.executor": "Run",
-    "TestNG.BusTest.VerifyTicketPriceFiltering.executor": "Run",
-    "TestNG.BusTest.searchBus.executor": "Run",
-    "TestNG.BusTest.verifyArrivalTimeFiltering.executor": "Run",
-    "TestNG.BusTest.verifyDepartureTimeFiltering.executor": "Run",
-    "TestNG.BusTest.verifyLocationChangerIsWorking.executor": "Run",
-    "TestNG.BusTest.verifyRatingIsInAscendingAndDescendingOrder.executor": "Run",
-    "TestNG.C:/UST_java/Goibibo_TestNG_Capstone_project/src/test/resources/Runnable/testng.xml.executor": "Run",
-    "TestNG.FlightTest.error_message_should_be_displayed_for_same_location.executor": "Run",
-    "TestNG.FlightTest.verifyMultiCityIsSelected.executor": "Run",
-    "TestNG.FlightTest.verifyRoundTripIsSelected.executor": "Run",
-    "TestNG.FlightTest.verifyUserIsOnFlightSearchPage.executor": "Run",
-    "TestNG.HomeTest.userLogin.executor": "Run",
-    "TestNG.HotelTest.bookTheFirstHotel.executor": "Run",
-    "TestNG.HotelTest.customerRatingsAreInDescendingOrder.executor": "Run",
-    "TestNG.HotelTest.customerRatingsAreTnDescendingOrder.executor": "Run",
-    "TestNG.HotelTest.priceOfHotelsAreInHighToLowOrder.executor": "Run",
-    "TestNG.HotelTest.priceOfHotelsAreInLowToHighOrder.executor": "Run",
-    "TestNG.HotelTest.searchHotel.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/UST_java/Goibibo_TestNG_Capstone_project/src/test/resources",
-    "onboarding.tips.debug.path": "C:/UST_java/Goibibo_TestNG_Capstone_project/src/main/java/org/example/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TestNG.BusTest.VerifyDestinationAndSourceAreNotSame.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.BusTest.VerifyTicketPriceFiltering.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.BusTest.searchBus.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.BusTest.verifyArrivalTimeFiltering.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.BusTest.verifyDepartureTimeFiltering.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.BusTest.verifyLocationChangerIsWorking.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.BusTest.verifyRatingIsInAscendingAndDescendingOrder.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/UST_java/Goibibo_TestNG_Capstone_project/src/test/resources/Runnable/testng.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.FlightTest.error_message_should_be_displayed_for_same_location.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.FlightTest.verifyMultiCityIsSelected.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.FlightTest.verifyRoundTripIsSelected.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.FlightTest.verifyUserIsOnFlightSearchPage.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HomeTest.userLogin.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HotelTest.bookTheFirstHotel.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HotelTest.customerRatingsAreInDescendingOrder.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HotelTest.customerRatingsAreTnDescendingOrder.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HotelTest.priceOfHotelsAreInHighToLowOrder.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HotelTest.priceOfHotelsAreInLowToHighOrder.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HotelTest.searchHotel.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/UST_java/Advance_Exam_Automation&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/UST_java/Goibibo_TestNG_Capstone_project/src/main/java/org/example/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\UST_java\Goibibo_TestNG_Capstone_project\src\test\resources" />
@@ -100,26 +84,11 @@
       <recent name="C:\UST_java\Goibibo_TestNG_Capstone_project\src\test\resources\Features" />
       <recent name="C:\UST_java\Goibibo_TestNG_Capstone_project\src\test" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.automation.Utils" />
+    </key>
   </component>
   <component name="RunManager" selected="TestNG.C:/UST_java/Goibibo_TestNG_Capstone_project/src/test/resources/Runnable/testng.xml">
-    <configuration name="BusTest.VerifyTicketPriceFiltering" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="Goibibo_TestNG_Capstone_project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.automation.Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.automation.Test" />
-      <option name="MAIN_CLASS_NAME" value="com.automation.Test.BusTest" />
-      <option name="METHOD_NAME" value="VerifyTicketPriceFiltering" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BusTest.searchBus" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Goibibo_TestNG_Capstone_project" />
       <extension name="coverage">
@@ -177,24 +146,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HotelTest.customerRatingsAreInDescendingOrder" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="Goibibo_TestNG_Capstone_project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.automation.Test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.automation.Test" />
-      <option name="MAIN_CLASS_NAME" value="com.automation.Test.HotelTest" />
-      <option name="METHOD_NAME" value="customerRatingsAreInDescendingOrder" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="HotelTest.priceOfHotelsAreInHighToLowOrder" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Goibibo_TestNG_Capstone_project" />
       <extension name="coverage">
@@ -213,13 +164,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HotelTest.priceOfHotelsAreInLowToHighOrder" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Goibibo_TestNG_Capstone_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.automation.Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.automation.Test" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.Test.HotelTest" />
+      <option name="METHOD_NAME" value="priceOfHotelsAreInLowToHighOrder" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HotelTest.searchHotel" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Goibibo_TestNG_Capstone_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.automation.Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.automation.Test" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.Test.HotelTest" />
+      <option name="METHOD_NAME" value="searchHotel" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.C:/UST_java/Goibibo_TestNG_Capstone_project/src/test/resources/Runnable/testng.xml" />
+        <item itemvalue="TestNG.HotelTest.priceOfHotelsAreInLowToHighOrder" />
         <item itemvalue="TestNG.BusTest.searchBus" />
+        <item itemvalue="TestNG.HotelTest.searchHotel" />
         <item itemvalue="TestNG.HotelTest.priceOfHotelsAreInHighToLowOrder" />
-        <item itemvalue="TestNG.HotelTest.customerRatingsAreInDescendingOrder" />
-        <item itemvalue="TestNG.BusTest.VerifyTicketPriceFiltering" />
       </list>
     </recent_temporary>
   </component>

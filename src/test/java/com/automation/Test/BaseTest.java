@@ -4,6 +4,7 @@ import com.automation.Pages.*;
 import com.automation.Utils.AllureReportManager;
 import com.automation.Utils.ConfigReader;
 import com.automation.Utils.DriverManager;
+import com.automation.Utils.ExtentReportManager;
 import com.aventstack.extentreports.gherkin.model.Scenario;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -25,17 +26,13 @@ public class BaseTest {
         flightSearchPage=new FlightSearchPage();
         busPage=new BusPage();
 
+
     }
     @AfterMethod
     public void cleanUp(){
         DriverManager.getDriver().quit();
+
+    }
     }
 
-//    @AfterMethod
-//    public void cleanUp(Scenario scenario) {
-//        if (scenario.isFailed()){
-//            AllureReportManager.attachScreenshot();
-//        }
-//        DriverManager.getDriver().quit();
-//    }
-}
+

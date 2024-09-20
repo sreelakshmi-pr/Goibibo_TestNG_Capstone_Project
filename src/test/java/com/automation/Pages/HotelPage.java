@@ -1,6 +1,8 @@
 package com.automation.Pages;
 
+import com.automation.Pages.BasePage;
 import com.automation.Utils.ConfigReader;
+import com.automation.Utils.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -22,8 +24,11 @@ public class HotelPage extends BasePage {
         @FindBy(xpath = "(//input[@name='CountryType'])[1]")
         WebElement radioButton;
 
-        @FindBy(xpath = "//input[@placeholder='e.g. - Area, Landmark or Property Name']")
+        @FindBy(xpath = "//input[contains(@placeholder,'Landmark or Property Name')]")
         WebElement place;
+
+        @FindBy(xpath = "//p[contains(text(),'Landmark or Property Name')]")
+        WebElement placeUP;
 
         public void clickOnHotel() {
                 hotel.click();
@@ -31,14 +36,27 @@ public class HotelPage extends BasePage {
         }
 
 
-        String clickOnFirstLoc = "//div[@class='HomePageAutosuggeststyles__LoctionName-sc-tk3iiv-16 fTrnEo' and contains(text(),'%s')]";
+        String clickOnFirstLoc = "(//div[contains(text(),'%s')])[1]";
 
         public void enterLocation(String loc) {
 
-                place.sendKeys(loc);
-                String loc1 = String.format(clickOnFirstLoc, loc);
-                driver.findElement(By.xpath(loc1)).click();
-//                selectPlace.click();
+                DriverManager.setImplicitWait(5);
+                try {
+                        place.isDisplayed();
+                        place.sendKeys(loc);
+                        String loc1 = String.format(clickOnFirstLoc, loc);
+                        driver.findElement(By.xpath(loc1)).click();
+                        System.out.println("1");
+
+                }catch (Exception e){
+                        placeUP.click();
+                        place.sendKeys(loc);
+                        System.out.println("2");
+                }finally {
+                        DriverManager.setImplicitWait(20);
+                }
+
+//
         }
 
         @FindBy(xpath = "//div[@data-testid='openCheckinCalendar']")
@@ -105,7 +123,7 @@ public class HotelPage extends BasePage {
                 search.click();
         }
 
-        @FindBy(xpath = "(//span[text()='Hotel'])[1]")
+        @FindBy(xpath = "(//div[1]/div[1]/span[2])[1]")
         WebElement hotelDisplayed;
 
         public boolean hotelSearchPageIsDisplayed() {
@@ -283,7 +301,7 @@ public class HotelPage extends BasePage {
                 return upiOptions.isDisplayed() && creditAndDebit.isDisplayed();
         }
 
-        @FindBy(xpath = "//span[text()='Price - Low to High']")
+        @FindBy(xpath = "//span[contains(text(),'Low to High')]")
         WebElement lowToHigh;
 
         public void clickOnPriceLowToHigh() {
@@ -291,15 +309,31 @@ public class HotelPage extends BasePage {
                 lowToHigh.click();
         }
 
-        @FindBy(css = ".HotelCardV2styles__OfferPrice-sc-6przws-18.cSoWUu")
+        @FindBy(xpath = "//p[@itemprop='priceRange']")
         List<WebElement> priceListLowToHigh;
 
+        @FindBy(css = ".HotelCardV2styles__OfferPrice-sc-6przws-18.cSoWUu")
+        List<WebElement> priceListLowToHigh2;
+
+
         public boolean priceIsLowToHighOrder() {
+                DriverManager.setImplicitWait(5);
                 List<Integer> li = new ArrayList<>();
 
-                for (WebElement price : priceListLowToHigh) {
-                        li.add(Integer.valueOf(price.getText().substring(1).trim()));
+                try {
+                        lowToHigh.isDisplayed();
+                        for (WebElement price : priceListLowToHigh) {
+                                li.add(Integer.valueOf(price.getText().trim()));
+                        }
+
+                }catch (Exception e){
+                        for (WebElement price : priceListLowToHigh2) {
+                                li.add(Integer.valueOf(price.getText().substring(1).trim()));
+                        }
+                }finally {
+                        DriverManager.setImplicitWait(60);
                 }
+
 
 
                 System.out.println("Original list (low to high) \n" + li);
@@ -313,26 +347,43 @@ public class HotelPage extends BasePage {
                 return li.equals(copy_li);
         }
 
-        @FindBy(xpath = "//span[text()='Price - High to Low']")
+
+        @FindBy(xpath = "//span[contains(text(),'High to Low')]")
         WebElement highToLow;
 
+
         public void clickOnPriceHighToLow() {
-                waitForElementToBeVisible(highToLow);
-                highToLow.click();
+
+                        waitForElementToBeVisible(highToLow);
+                        highToLow.click();
+
 
         }
 
-        @FindBy(css = ".HotelCardV2styles__OfferPrice-sc-6przws-18.cSoWUu")
+        @FindBy(xpath = "//p[@itemprop='priceRange']")
         List<WebElement> priceListHighToLow;
+
+        @FindBy(css = ".HotelCardV2styles__OfferPrice-sc-6przws-18.cSoWUu")
+        List<WebElement> priceListHighToLow2;
 
         public boolean priceIsHighToLowOrder() {
 
-            List<Integer> li = new ArrayList<>();
+                DriverManager.setImplicitWait(5);
+                List<Integer> li = new ArrayList<>();
 
-                for (WebElement price : priceListHighToLow) {
-                        li.add(Integer.valueOf(price.getText().substring(1).trim()));
+                try {
+                        highToLow.isDisplayed();
+                        for (WebElement price : priceListHighToLow) {
+                                li.add(Integer.valueOf(price.getText().trim()));
+                        }
+
+                }catch (Exception e){
+                        for (WebElement price : priceListHighToLow2) {
+                                li.add(Integer.valueOf(price.getText().substring(1).trim()));
+                        }
+                }finally {
+                        DriverManager.setImplicitWait(60);
                 }
-
 
                 System.out.println("Original list (high to low) \n" + li);
 
@@ -349,23 +400,53 @@ public class HotelPage extends BasePage {
         }
 
 
-        @FindBy(xpath = "//span[text()='Goibibo Reviews - Highest First']")
+        @FindBy(xpath = "//span[text()='Customer Ratings']")
         WebElement customerRating;
 
+        @FindBy(xpath = "//span[text()='Goibibo Reviews - Highest First']")
+        WebElement customerRating2;
+
         public void clickOnCustomerRating() {
-                waitForElementToBeVisible(customerRating);
-                customerRating.click();
+
+                DriverManager.setImplicitWait(5);
+                try {
+                        customerRating.isDisplayed();
+                        customerRating.click();
+                }catch (Exception e){
+                        customerRating2.click();
+                }finally {
+                        DriverManager.setImplicitWait(60);
+                }
+
         }
 
-        @FindBy(css = ".HotelReviewstyles__RatingText-sc-1hb22sy-4.iIHiis")
+        @FindBy(xpath = "//span[@itemprop='ratingValue']")
         List<WebElement> customerRatingNum;
 
+        @FindBy(css = ".HotelReviewstyles__RatingText-sc-1hb22sy-4.iIHiis")
+        List<WebElement> customerRatingNum2;
+
         public boolean hotelsInDescendingOrderByCustomerRating() {
+                DriverManager.setImplicitWait(5);
                 List<Double> li = new ArrayList<>();
 
-                for (WebElement rating : customerRatingNum) {
-                        li.add(Double.valueOf(rating.getText().trim()));
+                try {
+                        customerRating.isDisplayed();
+                        for (WebElement rating : customerRatingNum) {
+                                String[] string = rating.getText().split("/");
+//                        System.out.println(Arrays.toString(string));
+                                li.add(Double.valueOf(string[0]));
+                        }
+
+                }catch (Exception e){
+                        for (WebElement rating : customerRatingNum2) {
+
+                                li.add(Double.valueOf(rating.getText().trim()));
+                        }
+                }finally {
+                        DriverManager.setImplicitWait(60);
                 }
+
 
 
                 System.out.println("Original list (high to low) \n" + li);
@@ -383,13 +464,24 @@ public class HotelPage extends BasePage {
         }
 
         public void clickOnProperty(String propType) {
-                String xpath = "//span[text()='%s']";
-                WebElement v=driver.findElement(By.xpath(String.format(xpath, propType)));
-                waitForElementToBeVisible(v);
-                v.click();
+
+                DriverManager.setImplicitWait(5);
+                try {
+                        customerRating.isDisplayed();
+                        String xpath = "//span[contains(text(),'%s')]";
+                        WebElement v=driver.findElement(By.xpath(String.format(xpath, propType)));
+                        v.click();
+
+                }catch (Exception e){
+                        String xpath2 = "//p[contains(text(),'%s')]";
+                        WebElement v1=driver.findElement(By.xpath(String.format(xpath2, propType)));
+                        v1.click();
+                }finally {
+                        DriverManager.setImplicitWait(60);
+                }
 
                 try {
-                        Thread.sleep(2000);
+                        Thread.sleep(3000);
                 } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                 }
@@ -397,24 +489,47 @@ public class HotelPage extends BasePage {
         }
 
         public boolean PropertyPageAreDisplayed(String propType) {
-
-                String xpath = "//span[@class='HotelCardstyles__HotelTypeTag-sc-1s80tyk-17 gyCpqt' and text()='%s']";
-                List<String> propList = driver.findElements(By.xpath(String.format(xpath, propType))).stream().map(WebElement::getText).toList();
+                DriverManager.setImplicitWait(5);
                 boolean flag = true;
-                for (String apt : propList) {
-                        if (!apt.equals(propType.toUpperCase())) {
+
+                try {
+                        customerRating.isDisplayed();
+                        String xpath = ".HotelCardstyles__HotelTypeTag-sc-1s80tyk-17.eiIEHo";
+                        List<String> propList = driver.findElements(By.cssSelector(xpath)).stream().map(WebElement::getText).toList();
+
+                        for (String apt : propList) {
                                 System.out.println(apt);
-                                flag = false;
-                                break;
+                                if (!apt.equals(propType.toUpperCase())) {
+                                        System.out.println(apt);
+                                        flag = false;
+                                        break;
+                                }
+
                         }
-                        System.out.println(apt);
+
+                }catch (Exception e){
+                        String xpath = ".AltAccoRatingsRendererstyles__PropertyLabel-sc-1z0kydb-2.fxsWdT";
+                        List<String> propList = driver.findElements(By.cssSelector(xpath)).stream().map(WebElement::getText).toList();
+
+                        for (String apt : propList) {
+                                System.out.println(apt+"new");
+                                if (!apt.equals(propType)) {
+                                        System.out.println(apt);
+                                        flag = false;
+                                        break;
+                                }
+
+                        }
+                }finally {
+                        DriverManager.setImplicitWait(60);
                 }
                 return flag;
+
         }
 
         public void enterCountry(String city) {
 
-                String clickOnFirstLoc = "//div[@class='dwebCommonstyles__FlexItem-sc-112ty3f-4 ecJXVL']//div[contains(text(),'%s')]";
+                String clickOnFirstLoc = "(//div[contains(text(),'%s')])[1]";
                 place.sendKeys(city);
                 String loc1 = String.format(clickOnFirstLoc, city);
                 driver.findElement(By.xpath(loc1)).click();
@@ -447,6 +562,7 @@ public class HotelPage extends BasePage {
                         System.out.println(apt);
                 }
                 return flag;
+
         }
 
         public boolean priceRangeIsDisplayedCorrectly(String priceRange) {
@@ -513,57 +629,114 @@ public class HotelPage extends BasePage {
         }
 
         public void selectRating(String rating) {
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            String s = "//div[@ratingcount='%s']";
-                String loc = String.format(s, rating);
-                driver.findElement(By.xpath(loc)).click();
+                try {
+                        Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                }
+                try {
+                        customerRating.isDisplayed();
+                        String s = "//div[@ratingcount='%s']";
+                        String loc = String.format(s, rating);
+                        driver.findElement(By.xpath(loc)).click();
+                }catch (Exception e){
+                        String s = "//p[contains(text(),'%s')]";
+                        String loc = String.format(s, rating);
+                        driver.findElement(By.xpath(loc)).click();
+                }
+
 
         }
         @FindBy(xpath = "//span[@itemprop='ratingValue']")
         WebElement ratingPoint;
         public boolean ratingsAreDisplayed(String rating) {
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            List<String> filterList = driver.findElements(By.xpath("//span[@itemprop='ratingValue']")).stream().map(WebElement::getText).toList();
-
+                try {
+                        Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                }
                 boolean flag = true;
-                         for (String p : filterList) {
+
+                try {
+                        customerRating.isDisplayed();
+                        List<String> filterList = driver.findElements(By.xpath("//span[@itemprop='ratingValue']")).stream().map(WebElement::getText).toList();
+
+                        for (String p : filterList) {
                                 String[] string = p.split("/");
                                 double r = Double.parseDouble(string[0]);
-                                double d=Double.parseDouble(rating);
-                                if (r<d) {
+                                double d = Double.parseDouble(rating);
+                                if (r < d) {
                                         flag = false;
-                                        System.out.print(r+"failed");
+                                        System.out.print(r + "failed");
                                         break;
                                 }
-                                 System.out.print(r);
+                        }
+                }catch (Exception e){
+                        List<String> filterList = driver.findElements(By.cssSelector(".HotelReviewstyles__RatingText-sc-1hb22sy-4.iIHiis")).stream().map(WebElement::getText).toList();
+
+                        for (String p : filterList) {
+
+                                double r = Double.parseDouble(p.trim());
+                                double d = Double.parseDouble(rating);
+                                if (r < d) {
+                                        flag = false;
+                                        System.out.print(r + "failed");
+                                        break;
+                                }
+                        }
                 }
+
                 return flag;
         }
 
-        public void selectStarRating(String star) {
+        public void selectStarRating(String star,String noOfStar) {
 
-                String rating = "(//span[@class='Filtersstyles__StarRatingWrapperSpan-sc-bkjigy-7 ijCsnN'])['%s']";
-                String loc = String.format(rating,star);
-                driver.findElement(By.xpath(loc)).click();
+                try {
+                        Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                }
+                DriverManager.setImplicitWait(5);
+                try {
+                        customerRating.isDisplayed();
+                        String rating = "(//span[@class='Filtersstyles__StarRatingWrapperSpan-sc-bkjigy-7 cojycI'])['%s']";
+                        String loc = String.format(rating,star);
+                        driver.findElement(By.xpath(loc)).click();
+                }catch (Exception e){
+                        String rating = "//p[@class='FilterPillsListstyles__FilterText-sc-1thx3gf-6 gVgZJZ' and contains(text(),'%s Star')]";
+                        String loc = String.format(rating,noOfStar);
+                        driver.findElement(By.xpath(loc)).click();
+                }finally {
+                        DriverManager.setImplicitWait(60);
+                }
+
+
         }
 
         public boolean starRatingIsDisplayedCorrectly(String star) {
 
-                String rating = String.format("//span[@content='%s']",star);
-                List<WebElement> filterList = driver.findElements(By.xpath(rating));
-                for(WebElement rate:filterList){
-                        if(!rate.isDisplayed()){
-                                return false;
+                DriverManager.setImplicitWait(5);
+                try {
+                        customerRating.isDisplayed();
+                        String rating = String.format("//span[@content='%s']",star);
+                        List<WebElement> filterList = driver.findElements(By.xpath(rating));
+                        for(WebElement rate:filterList){
+                                if(!rate.isDisplayed()){
+                                        return false;
+                                }
+                        }
+
+                }catch (Exception e){
+
+                        List<WebElement> filterList = driver.findElements(By.cssSelector(".AltAccoRatingsRendererstyles__HotelStarRating-sc-1z0kydb-1.hemimk"));
+                        for(WebElement rate:filterList){
+                                if(!rate.getText().contains(star)){
+                                        return false;
+                                }
                         }
                 }
+
+                DriverManager.setImplicitWait(60);
                 return true;
 
         }
@@ -579,7 +752,7 @@ public class HotelPage extends BasePage {
 
                 String fCity1=String.format("(//div[contains(text(),'%s')])[1]",city);
                 WebElement selectCity=driver.findElement(By.xpath(fCity1));
-               waitForElementToBeVisible(selectCity);
+                waitForElementToBeVisible(selectCity);
 
 //                System.out.println(s.isDisplayed());
 //                JavascriptExecutor executor=(JavascriptExecutor) driver;
@@ -600,8 +773,14 @@ public class HotelPage extends BasePage {
         public void clickOnUpdateSearchBtn() {
 
                 updateSearchBtn.click();
-                if(popUp.isDisplayed()) {
+                DriverManager.setImplicitWait(5);
+                try {
+                        popUp.isDisplayed();
                         popUp.click();
+                }catch (Exception e){
+                        System.out.println(e);
+                }finally {
+                        DriverManager.setImplicitWait(60);
                 }
         }
 
@@ -609,9 +788,15 @@ public class HotelPage extends BasePage {
         WebElement updatedText;
 
         public boolean hotelsAreUpdated(String city) {
-                String s = updatedText.getText();
-                System.out.println(s);
-                return s.contains(city);
+                try {
+                        customerRating.isDisplayed();
+                        String s = updatedText.getText();
+                        System.out.println(s);
+                        return s.contains(city);
+                }catch (Exception e){
+                        return false;
+                }
+
         }
 //
 }
